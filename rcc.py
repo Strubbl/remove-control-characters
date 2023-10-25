@@ -9,8 +9,8 @@ while True:
     if not line:
         # reached EOF
         break
-    nocc = "".join(ch for c in line if unicodedata.category(c)[0]!="C")
-    file2.write(nocc + "\n")
+    nocc = "".join(c for c in line if unicodedata.category(c)[0]!="C" or unicodedata.category(c)=="Cc")
+    file2.write(nocc)
 
 file1.close()
 file2.close()
